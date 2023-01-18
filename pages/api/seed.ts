@@ -8,6 +8,7 @@ type Data = {
 	message: string
 }
 
+//resets the data in the db
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 	if (process.env.NODE_ENV === "production") {
 		return res.status(401).json({ message: "No authorized" })
