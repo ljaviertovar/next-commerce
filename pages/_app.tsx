@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app"
 import { CssBaseline, ThemeProvider } from "@mui/material"
 
-import { darkTheme } from "../themes/light-theme"
+import { darkTheme } from "../themes/dark-theme"
 
 import "../styles/globals.css"
 
