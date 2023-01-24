@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { Navbar } from "../ui"
 
 interface Props {
 	children: React.ReactNode | React.ReactNode[]
@@ -21,7 +22,7 @@ export default function ShopLayout({ children, imageUrl, pageDescription, title 
 				{imageUrl && <meta name='og:image' content={imageUrl} />}
 			</Head>
 
-			<nav></nav>
+			<Navbar />
 
 			<main
 				style={{
