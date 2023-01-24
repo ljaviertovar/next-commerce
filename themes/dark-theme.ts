@@ -14,7 +14,7 @@ export const darkTheme = createTheme({
 	components: {
 		MuiLink: {
 			defaultProps: {
-				color: "#fff",
+				color: "#f1f1f1",
 				underline: "none",
 			},
 		},

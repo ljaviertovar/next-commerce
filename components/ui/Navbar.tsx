@@ -26,8 +26,8 @@ export default function Navbar() {
 							Women
 						</Link>
 					</NextLink>
-					<NextLink href='/category/kids' passHref>
-						<Link underline='hover' className='link' component={"span"}>
+					<NextLink href='/category/kids' className='link' passHref>
+						<Link underline='hover' component={"span"}>
 							Kids
 						</Link>
 					</NextLink>
