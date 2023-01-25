@@ -1,6 +1,6 @@
 import { Box, Button, Card, CardContent, Divider, Grid, Typography } from "@mui/material"
 import { ShopLayout } from "../../components/layouts"
-import { CartList } from "../../components/cart"
+import { CartList, OrderSummary } from "../../components/cart"
 
 export default function CartPage() {
 	return (
@@ -16,10 +16,10 @@ export default function CartPage() {
 				<Grid item xs={12} sm={5}>
 					<Card className='summary-card'>
 						<CardContent>
-							<Typography variant='h2'>Orden</Typography>
+							<Typography variant='h2'>Order</Typography>
 							<Divider sx={{ my: 1 }} />
 
-							{/* <OrderSummary /> */}
+							<OrderSummary />
 
 							<Box sx={{ mt: 3 }}>
 								<Button color='secondary' className='circular-btn' fullWidth>
