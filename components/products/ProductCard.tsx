@@ -1,4 +1,5 @@
-import { Box, Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material"
+import NextLink from "next/link"
+import { Box, Card, CardActionArea, CardMedia, Grid, Link, Typography } from "@mui/material"
 
 import { Product } from "../../interfaces/products.interface"
 import { useMemo, useState } from "react"
@@ -18,7 +19,11 @@ export default function ProductCard({ product }: Props) {
 		<Grid item xs={6} sm={4} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 			<Card>
 				<CardActionArea>
-					<CardMedia component='img' image={productImage} alt={product.title} className='fadeIn' />
+					<NextLink href={`/product/slug`} passHref prefetch={false}>
+						<Link>
+							<CardMedia component='img' image={productImage} alt={product.title} className='fadeIn' />
+						</Link>
+					</NextLink>
 				</CardActionArea>
 			</Card>
 
