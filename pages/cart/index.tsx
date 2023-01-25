@@ -5,8 +5,8 @@ import { CartList, OrderSummary } from "../../components/cart"
 export default function CartPage() {
 	return (
 		<ShopLayout title='Carrito - 3' pageDescription={"Carrito de compras de la tienda"}>
-			<Typography variant='h1' component='h1'>
-				Carrito
+			<Typography variant='h1' component='h1' sx={{ mb: 2 }}>
+				Shopping cart
 			</Typography>
 
 			<Grid container>
