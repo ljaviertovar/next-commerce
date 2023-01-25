@@ -24,7 +24,9 @@ export default function SummaryPage() {
 							<Box display='flex' justifyContent='space-between'>
 								<Typography variant='subtitle1'>Delivery Address</Typography>
 								<NextLink href='/checkout/address' passHref>
-									<Link underline='always'>Edit</Link>
+									<Link underline='always' component={"span"}>
+										Edit
+									</Link>
 								</NextLink>
 							</Box>
 
@@ -38,7 +40,9 @@ export default function SummaryPage() {
 
 							<Box display='flex' justifyContent='end'>
 								<NextLink href='/cart' passHref>
-									<Link underline='always'>Edit</Link>
+									<Link underline='always' component={"span"}>
+										Edit
+									</Link>
 								</NextLink>
 							</Box>
 
