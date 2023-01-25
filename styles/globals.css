@@ -53,3 +53,7 @@
   min-width: 64px;
   padding: 4px 10px;
 }
+
+.react-slideshow-container + ul.indicators .each-slideshow-indicator:before {
+  background: #f1f1f1 !important;
+}
