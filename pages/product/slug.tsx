@@ -2,6 +2,8 @@ import { Box, Button, Chip, Grid, Typography } from "@mui/material"
 import { ShopLayout } from "../../components/layouts"
 import { initialData } from "../../database/seedProducts"
 import { ProductSlideshow } from "../../components/products"
+import { ItemCounter } from "../../components/ui/ItemCounter"
+import SizeSelector from "../../components/products/SizeSelector"
 
 const product = initialData.products[0]
 
@@ -24,7 +26,10 @@ export default function slug() {
 
 						<Box sx={{ my: 2 }}>
 							<Typography variant='subtitle2'>Quantity</Typography>
+							<ItemCounter />
+							<SizeSelector selectedSize='L' sizes={product.sizes} />
 						</Box>
+
 						<Button color='secondary' className='circular-btn'>
 							Add to Cart
 						</Button>
