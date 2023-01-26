@@ -4,7 +4,7 @@ import { AuthLayout } from "../../components/layouts"
 
 export default function RegisterPage() {
 	return (
-		<AuthLayout title={"Sing in"}>
+		<AuthLayout title={"Sign in"}>
 			<Box sx={{ width: 350, padding: "10px 20px" }}>
 				<Grid container spacing={2}>
 					<Grid item xs={12}>
@@ -25,7 +25,7 @@ export default function RegisterPage() {
 
 					<Grid item xs={12}>
 						<Button color='secondary' className='circular-btn' size='large' fullWidth>
-							Sing in
+							Sign in
 						</Button>
 					</Grid>
 
