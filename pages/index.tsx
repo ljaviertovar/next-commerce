@@ -3,6 +3,7 @@ import { ShopLayout } from "../components/layouts"
 import { ProductList } from "../components/products"
 
 import { useProducts } from "../hooks"
+import FullScreenLoading from "../components/ui/FullScreenLoading"
 
 export default function HomePage() {
 	const { products, isLoading } = useProducts("/products")
@@ -18,7 +19,7 @@ export default function HomePage() {
 				All Products
 			</Typography>
 
-			{isLoading ? <h1>Is Loading</h1> : <ProductList products={products} />}
+			{isLoading ? <FullScreenLoading /> : <ProductList products={products} />}
 		</ShopLayout>
 	)
 }
