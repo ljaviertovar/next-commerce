@@ -2,11 +2,13 @@ import { Typography } from "@mui/material"
 import { ShopLayout } from "../components/layouts"
 import { ProductList } from "../components/products"
 
-import { Product as IProduct } from "../interfaces/products.interface"
+import { useProducts } from "../hooks"
 
-import { initialData } from "../database"
+export default function HomePage() {
+	const { products, isLoading } = useProducts("/products")
 
-export default function Home() {
+	console.log({ products })
+
 	return (
 		<ShopLayout title={"Next commerce - Home"} pageDescription={"Find the best prodcuts here"}>
 			<Typography variant='h1' component='h1'>
@@ -16,7 +18,7 @@ export default function Home() {
 				All Products
 			</Typography>
 
-			<ProductList products={initialData.products as IProduct[]} />
+			{isLoading ? <h1>Is Loading</h1> : <ProductList products={products} />}
 		</ShopLayout>
 	)
 }
