@@ -5,6 +5,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material"
 import { darkTheme } from "../themes/dark-theme"
 
 import "../styles/globals.css"
+import { UiProvider } from "../context"
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -14,10 +15,12 @@ export default function App({ Component, pageProps }: AppProps) {
 				fetcher: (...args: [key: string]) => fetch(...args).then(res => res.json()),
 			}}
 		>
-			<ThemeProvider theme={darkTheme}>
-				<CssBaseline />
-				<Component {...pageProps} />
-			</ThemeProvider>
+			<UiProvider>
+				<ThemeProvider theme={darkTheme}>
+					<CssBaseline />
+					<Component {...pageProps} />
+				</ThemeProvider>
+			</UiProvider>
 		</SWRConfig>
 	)
 }
