@@ -13,7 +13,7 @@ export default function ProductCard({ product }: Props) {
 	const [isImageLoaded, setIsImageLoaded] = useState(false)
 
 	const productImage = useMemo(() => {
-		return isHovered ? `products/${product.images[1]}` : `products/${product.images[0]}`
+		return isHovered ? `/products/${product.images[1]}` : `/products/${product.images[0]}`
 	}, [isHovered, product.images])
 
 	return (
