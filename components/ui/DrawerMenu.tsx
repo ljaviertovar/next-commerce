@@ -1,3 +1,6 @@
+import { useContext } from "react"
+import { useRouter } from "next/router"
+
 import {
 	Box,
 	Divider,
@@ -7,6 +10,7 @@ import {
 	InputAdornment,
 	List,
 	ListItem,
+	ListItemButton,
 	ListItemIcon,
 	ListItemText,
 	ListSubheader,
@@ -24,9 +28,25 @@ import {
 	VpnKeyOutlined,
 } from "@mui/icons-material"
 
+import { UiContext } from "../../context"
+
 export default function DrawerMenu() {
+	const { isMenuOpen, toggleMenu } = useContext(UiContext)
+
+	const router = useRouter()
+
+	const navigateTo = (url: string) => {
+		toggleMenu()
+		router.push(url)
+	}
+
 	return (
-		<Drawer open={false} anchor='right' sx={{ backdropFilter: "blur(4px)", transition: "all 0.5s ease-out" }}>
+		<Drawer
+			open={isMenuOpen}
+			anchor='right'
+			sx={{ backdropFilter: "blur(4px)", transition: "all 0.5s ease-out" }}
+			onClose={toggleMenu}
+		>
 			<Box sx={{ width: 250, paddingTop: 5 }}>
 				<List>
 					<ListItem>
@@ -43,78 +63,78 @@ export default function DrawerMenu() {
 						/>
 					</ListItem>
 
-					<ListItem button>
+					<ListItemButton>
 						<ListItemIcon>
 							<AccountCircleOutlined />
 						</ListItemIcon>
 						<ListItemText primary={"Perfil"} />
-					</ListItem>
+					</ListItemButton>
 
-					<ListItem button>
+					<ListItemButton>
 						<ListItemIcon>
 							<ConfirmationNumberOutlined />
 						</ListItemIcon>
 						<ListItemText primary={"Mis Ordenes"} />
-					</ListItem>
+					</ListItemButton>
 
-					<ListItem button sx={{ display: { xs: "", sm: "none" } }}>
+					<ListItemButton sx={{ display: { xs: "", sm: "none" } }} onClick={() => navigateTo("/category/men")}>
 						<ListItemIcon>
 							<MaleOutlined />
 						</ListItemIcon>
-						<ListItemText primary={"Hombres"} />
-					</ListItem>
+						<ListItemText primary={"Men"} />
+					</ListItemButton>
 
-					<ListItem button sx={{ display: { xs: "", sm: "none" } }}>
+					<ListItemButton sx={{ display: { xs: "", sm: "none" } }} onClick={() => navigateTo("/category/women")}>
 						<ListItemIcon>
 							<FemaleOutlined />
 						</ListItemIcon>
-						<ListItemText primary={"Mujeres"} />
-					</ListItem>
+						<ListItemText primary={"women"} />
+					</ListItemButton>
 
-					<ListItem button sx={{ display: { xs: "", sm: "none" } }}>
+					<ListItemButton sx={{ display: { xs: "", sm: "none" } }} onClick={() => navigateTo("/category/kids")}>
 						<ListItemIcon>
 							<EscalatorWarningOutlined />
 						</ListItemIcon>
-						<ListItemText primary={"Niños"} />
-					</ListItem>
+						<ListItemText primary={"Kids"} />
+					</ListItemButton>
 
-					<ListItem button>
+					<ListItemButton>
 						<ListItemIcon>
 							<VpnKeyOutlined />
 						</ListItemIcon>
 						<ListItemText primary={"Ingresar"} />
-					</ListItem>
+					</ListItemButton>
 
-					<ListItem button>
+					<ListItemButton>
 						<ListItemIcon>
 							<LoginOutlined />
 						</ListItemIcon>
 						<ListItemText primary={"Salir"} />
-					</ListItem>
+					</ListItemButton>
 
 					{/* Admin */}
 					<Divider />
 					<ListSubheader>Admin Panel</ListSubheader>
 
-					<ListItem button>
+					<ListItemButton>
 						<ListItemIcon>
 							<CategoryOutlined />
 						</ListItemIcon>
 						<ListItemText primary={"Productos"} />
-					</ListItem>
-					<ListItem button>
+					</ListItemButton>
+					<ListItemButton>
 						<ListItemIcon>
 							<ConfirmationNumberOutlined />
 						</ListItemIcon>
 						<ListItemText primary={"Ordenes"} />
-					</ListItem>
+					</ListItemButton>
 
-					<ListItem button>
+					<ListItemButton>
 						<ListItemIcon>
 							<AdminPanelSettings />
 						</ListItemIcon>
 						<ListItemText primary={"Usuarios"} />
-					</ListItem>
+					</ListItemButton>
 				</List>
 			</Box>
 		</Drawer>
