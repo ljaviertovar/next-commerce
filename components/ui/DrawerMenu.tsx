@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { useRouter } from "next/router"
 
 import {
@@ -31,9 +31,16 @@ import {
 import { UiContext } from "../../context"
 
 export default function DrawerMenu() {
+	const [searchTerm, setSearchTerm] = useState("")
+
 	const { isMenuOpen, toggleMenu } = useContext(UiContext)
 
 	const router = useRouter()
+
+	const onSearchTerm = () => {
+		if (searchTerm.trim().length === 0) return
+		navigateTo(`/search/${searchTerm}`)
+	}
 
 	const navigateTo = (url: string) => {
 		toggleMenu()
@@ -51,6 +58,10 @@ export default function DrawerMenu() {
 				<List>
 					<ListItem>
 						<Input
+							autoFocus
+							value={searchTerm}
+							onChange={e => setSearchTerm(e.target.value)}
+							onKeyPress={e => (e.key === "Enter" ? onSearchTerm() : null)}
 							type='text'
 							placeholder='Buscar...'
 							endAdornment={
