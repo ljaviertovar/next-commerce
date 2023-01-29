@@ -63,7 +63,7 @@ export default function DrawerMenu() {
 							onChange={e => setSearchTerm(e.target.value)}
 							onKeyPress={e => (e.key === "Enter" ? onSearchTerm() : null)}
 							type='text'
-							placeholder='Buscar...'
+							placeholder='Search...'
 							endAdornment={
 								<InputAdornment position='end'>
 									<IconButton aria-label='toggle password visibility'>

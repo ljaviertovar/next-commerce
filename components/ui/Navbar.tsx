@@ -8,16 +8,16 @@ import { ClearOutlined, SearchOutlined, ShoppingCartOutlined } from "@mui/icons-
 import { UiContext } from "../../context"
 
 export default function Navbar() {
-	const { toggleMenu } = useContext(UiContext)
-
-	const { asPath } = useRouter()
-
 	const [searchTerm, setSearchTerm] = useState("")
 	const [isSearchVisible, setIsSearchVisible] = useState(false)
 
+	const { toggleMenu } = useContext(UiContext)
+
+	const { asPath, push } = useRouter()
+
 	const onSearchTerm = () => {
 		if (searchTerm.trim().length === 0) return
-		// push(`/search/${searchTerm}`)
+		push(`/search/${searchTerm}`)
 	}
 
 	return (
@@ -61,7 +61,7 @@ export default function Navbar() {
 						onChange={e => setSearchTerm(e.target.value)}
 						onKeyPress={e => (e.key === "Enter" ? onSearchTerm() : null)}
 						type='text'
-						placeholder='Buscar...'
+						placeholder='Search...'
 						endAdornment={
 							<InputAdornment position='end'>
 								<IconButton onClick={() => setIsSearchVisible(false)}>
@@ -95,7 +95,7 @@ export default function Navbar() {
 					</Link>
 				</NextLink>
 
-				<Button onClick={toggleMenu}>Menú</Button>
+				<Button onClick={toggleMenu}>Menu</Button>
 			</Toolbar>
 		</AppBar>
 	)
