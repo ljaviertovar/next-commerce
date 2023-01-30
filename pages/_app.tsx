@@ -6,6 +6,7 @@ import { darkTheme } from "../themes/dark-theme"
 
 import "../styles/globals.css"
 import { UiProvider } from "../context"
+import { CartProvider } from "../context/cart/CartProvider"
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -15,12 +16,14 @@ export default function App({ Component, pageProps }: AppProps) {
 				fetcher: (...args: [key: string]) => fetch(...args).then(res => res.json()),
 			}}
 		>
-			<UiProvider>
-				<ThemeProvider theme={darkTheme}>
-					<CssBaseline />
-					<Component {...pageProps} />
-				</ThemeProvider>
-			</UiProvider>
+			<CartProvider>
+				<UiProvider>
+					<ThemeProvider theme={darkTheme}>
+						<CssBaseline />
+						<Component {...pageProps} />
+					</ThemeProvider>
+				</UiProvider>
+			</CartProvider>
 		</SWRConfig>
 	)
 }
