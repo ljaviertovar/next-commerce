@@ -1,3 +1,2 @@
-import { Product } from "./products.interface"
-
-export type { Product }
+export * from "./cart.interface"
+export * from "./products.interface"
