@@ -1,4 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next"
+import { useRouter } from "next/router"
+
 import { Box, Button, Chip, Grid, Typography } from "@mui/material"
 
 import { ShopLayout } from "../../components/layouts"
@@ -8,7 +10,8 @@ import SizeSelector from "../../components/products/SizeSelector"
 import { Product as IProduct, Size } from "../../interfaces/products.interface"
 import { dbProducts } from "../../database"
 import { CartProductType } from "../../interfaces/cart.interface"
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { CartContext } from "../../context/cart/CartContext"
 
 interface Props {
 	product: IProduct
@@ -26,6 +29,10 @@ export default function ProductPage({ product }: Props) {
 		quantity: 1,
 	})
 
+	const router = useRouter()
+
+	const { addProductToCart } = useContext(CartContext)
+
 	const onSelectedSize = (size: Size) => {
 		setTempCartProduct({ ...tempCartProduct, size })
 	}
@@ -36,6 +43,12 @@ export default function ProductPage({ product }: Props) {
 
 	const onAddToCart = () => {
 		console.log({ tempCartProduct })
+
+		if (!tempCartProduct.size) return
+
+		addProductToCart(tempCartProduct)
+
+		// router.push("/cart")
 	}
 
 	return (
