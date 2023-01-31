@@ -35,10 +35,13 @@ export default function ProductPage({ product }: Props) {
 							<SizeSelector selectedSize='L' sizes={product.sizes} />
 						</Box>
 
-						<Button color='secondary' className='circular-btn'>
-							Add to Cart
-						</Button>
-						{/* <Chip label={"Sold out"} color='error' variant='outlined' /> */}
+						{product.inStock === 0 ? (
+							<Chip label={"Sold out"} color='warning' variant='outlined' />
+						) : (
+							<Button color='secondary' className='circular-btn'>
+								Add to Cart
+							</Button>
+						)}
 
 						<Box sx={{ mt: 3 }}>
 							<Typography variant='subtitle2'>Description</Typography>

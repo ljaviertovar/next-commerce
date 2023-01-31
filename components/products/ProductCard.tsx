@@ -1,5 +1,5 @@
 import NextLink from "next/link"
-import { Box, Card, CardActionArea, CardMedia, Grid, Link, Typography } from "@mui/material"
+import { Box, Card, CardActionArea, CardMedia, Chip, Grid, Link, Typography } from "@mui/material"
 
 import { Product } from "../../interfaces/products.interface"
 import { useMemo, useState } from "react"
@@ -20,6 +20,14 @@ export default function ProductCard({ product }: Props) {
 		<Grid item xs={6} sm={4} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 			<Card>
 				<CardActionArea>
+					{product.inStock === 0 && (
+						<Chip
+							color='warning'
+							label='Sold out'
+							sx={{ position: "absolute", zIndex: 99, top: "10px", left: "10px" }}
+						/>
+					)}
+
 					<NextLink href={`/product/${product.slug}`} passHref prefetch={false}>
 						<Link>
 							<CardMedia
