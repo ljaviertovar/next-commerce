@@ -30,6 +30,14 @@ export default function ProductPage({ product }: Props) {
 		setTempCartProduct({ ...tempCartProduct, size })
 	}
 
+	const onUpdateQuantity = (quantity: number) => {
+		setTempCartProduct({ ...tempCartProduct, quantity })
+	}
+
+	const onAddToCart = () => {
+		console.log({ tempCartProduct })
+	}
+
 	return (
 		<ShopLayout title={product.title} pageDescription={product.description}>
 			<Grid container spacing={3}>
@@ -48,14 +56,18 @@ export default function ProductPage({ product }: Props) {
 
 						<Box sx={{ my: 2 }}>
 							<Typography variant='subtitle2'>Quantity</Typography>
-							<ItemCounter />
+							<ItemCounter
+								currentValue={tempCartProduct.quantity}
+								updatedQuantity={onUpdateQuantity}
+								maxValue={product.inStock}
+							/>
 							<SizeSelector selectedSize={tempCartProduct.size} sizes={product.sizes} onSelectedSize={onSelectedSize} />
 						</Box>
 
 						{product.inStock === 0 ? (
 							<Chip label={"Sold out"} color='warning' variant='outlined' />
 						) : (
-							<Button color='secondary' className='circular-btn'>
+							<Button color='secondary' className='circular-btn' onClick={() => onAddToCart()}>
 								{tempCartProduct.size ? "Add to Cart" : "Select a size"}
 							</Button>
 						)}
