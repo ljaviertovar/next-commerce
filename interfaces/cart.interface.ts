@@ -4,7 +4,7 @@ export interface CartProductType {
 	_id?: string
 	images: string
 	price: number
-	size: Size
+	size?: Size
 	slug: string
 	title: string
 	gender: Gender

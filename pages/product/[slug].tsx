@@ -5,14 +5,31 @@ import { ShopLayout } from "../../components/layouts"
 import { ProductSlideshow } from "../../components/products"
 import { ItemCounter } from "../../components/ui/ItemCounter"
 import SizeSelector from "../../components/products/SizeSelector"
-import { Product as IProduct } from "../../interfaces/products.interface"
+import { Product as IProduct, Size } from "../../interfaces/products.interface"
 import { dbProducts } from "../../database"
+import { CartProductType } from "../../interfaces/cart.interface"
+import { useState } from "react"
 
 interface Props {
 	product: IProduct
 }
 
 export default function ProductPage({ product }: Props) {
+	const [tempCartProduct, setTempCartProduct] = useState<CartProductType>({
+		_id: product._id,
+		images: product.images[0],
+		price: product.price,
+		size: undefined,
+		slug: product.slug,
+		title: product.title,
+		gender: product.gender,
+		quantity: 1,
+	})
+
+	const onSelectedSize = (size: Size) => {
+		setTempCartProduct({ ...tempCartProduct, size })
+	}
+
 	return (
 		<ShopLayout title={product.title} pageDescription={product.description}>
 			<Grid container spacing={3}>
@@ -32,14 +49,14 @@ export default function ProductPage({ product }: Props) {
 						<Box sx={{ my: 2 }}>
 							<Typography variant='subtitle2'>Quantity</Typography>
 							<ItemCounter />
-							<SizeSelector selectedSize='L' sizes={product.sizes} />
+							<SizeSelector selectedSize={tempCartProduct.size} sizes={product.sizes} onSelectedSize={onSelectedSize} />
 						</Box>
 
 						{product.inStock === 0 ? (
 							<Chip label={"Sold out"} color='warning' variant='outlined' />
 						) : (
 							<Button color='secondary' className='circular-btn'>
-								Add to Cart
+								{tempCartProduct.size ? "Add to Cart" : "Select a size"}
 							</Button>
 						)}
 
