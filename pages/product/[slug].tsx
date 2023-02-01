@@ -48,7 +48,7 @@ export default function ProductPage({ product }: Props) {
 
 		addProductToCart(tempCartProduct)
 
-		router.push("/cart")
+		// router.push("/cart")
 	}
 
 	return (
