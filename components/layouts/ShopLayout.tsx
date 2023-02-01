@@ -22,9 +22,7 @@ export default function ShopLayout({ children, imageUrl, pageDescription, title 
 				{imageUrl && <meta name='og:image' content={imageUrl} />}
 			</Head>
 
-			<nav>
-				<Navbar />
-			</nav>
+			<Navbar />
 
 			<DrawerMenu />
 
