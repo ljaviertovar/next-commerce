@@ -25,8 +25,8 @@ export default function Navbar() {
 			<nav>
 				<Toolbar>
 					<NextLink href={"/"} passHref className='link'>
-						<Link component={"span"}>
-							<Typography variant='h6'>Next Commerce</Typography>
+						<Link component={"div"}>
+							<Typography variant='body1'>Next Commerce</Typography>
 						</Link>
 					</NextLink>
 
@@ -87,12 +87,12 @@ export default function Navbar() {
 					</IconButton>
 
 					<NextLink href='/cart' passHref>
-						<Link component={"span"}>
-							<IconButton>
-								<Badge badgeContent={2} color='secondary'>
-									<ShoppingCartOutlined />
-								</Badge>
-							</IconButton>
+						<Link component={"div"}>
+							{/* <IconButton> */}
+							<Badge badgeContent={2} color='secondary'>
+								<ShoppingCartOutlined />
+							</Badge>
+							{/* </IconButton> */}
 						</Link>
 					</NextLink>
 

@@ -50,11 +50,21 @@ export const CartProvider = ({ children }: CartProviderType) => {
 		dispatch({ type: "UPDATE_CART", payload: updatedCart })
 	}
 
+	const updateCartQuantity = (prodcut: CartProductType) => {
+		const cartUpdated = state.cart.map(p => {
+			if (prodcut._id !== p._id && prodcut.size !== p.size) return p
+			return prodcut
+		})
+
+		dispatch({ type: "UPDATE_QUANTITY", payload: cartUpdated })
+	}
+
 	return (
 		<CartContext.Provider
 			value={{
 				...state,
 				addProductToCart,
+				updateCartQuantity,
 			}}
 		>
 			{children}

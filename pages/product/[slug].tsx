@@ -20,7 +20,7 @@ interface Props {
 export default function ProductPage({ product }: Props) {
 	const [tempCartProduct, setTempCartProduct] = useState<CartProductType>({
 		_id: product._id,
-		images: product.images[0],
+		image: product.images[0],
 		price: product.price,
 		size: undefined,
 		slug: product.slug,
@@ -48,7 +48,7 @@ export default function ProductPage({ product }: Props) {
 
 		addProductToCart(tempCartProduct)
 
-		// router.push("/cart")
+		router.push("/cart")
 	}
 
 	return (

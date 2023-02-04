@@ -2,7 +2,7 @@ import { Gender, Size } from "./products.interface"
 
 export interface CartProductType {
 	_id?: string
-	images: string
+	image: string
 	price: number
 	size?: Size
 	slug: string
