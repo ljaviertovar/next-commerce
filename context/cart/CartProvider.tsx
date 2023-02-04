@@ -59,11 +59,19 @@ export const CartProvider = ({ children }: CartProviderType) => {
 		dispatch({ type: "UPDATE_QUANTITY", payload: cartUpdated })
 	}
 
+	const removeCartProduct = (product: CartProductType) => {
+		console.log({ product })
+		const updatedcart = state.cart.filter(p => !(p._id === product._id && p.size === product.size))
+
+		dispatch({ type: "REMOVE_PRODUCT_IN_CART", payload: updatedcart })
+	}
+
 	return (
 		<CartContext.Provider
 			value={{
 				...state,
 				addProductToCart,
+				removeCartProduct,
 				updateCartQuantity,
 			}}
 		>
