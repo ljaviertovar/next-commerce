@@ -6,10 +6,10 @@ import { ProductList } from "../../components/products"
 
 import { dbProducts } from "../../database"
 
-import { Product as IProduct } from "../../interfaces"
+import { Product as ProductType } from "../../interfaces"
 
 interface Props {
-	products: IProduct[]
+	products: ProductType[]
 	foundProducts: boolean
 	query: string
 }

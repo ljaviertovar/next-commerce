@@ -6,10 +6,12 @@ specifiers:
   '@mui/icons-material': ^5.11.0
   '@mui/material': ^5.11.4
   '@mui/x-data-grid': ^5.17.20
+  '@types/bcryptjs': ^2.4.2
   '@types/js-cookie': ^3.0.2
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
+  bcryptjs: ^2.4.3
   eslint: 8.28.0
   eslint-config-next: 13.0.4
   js-cookie: ^3.0.1
@@ -27,10 +29,12 @@ dependencies:
   '@mui/icons-material': 5.11.0_redxmru6moqqkpexall3enuotm
   '@mui/material': 5.11.4_thp4wrxo45nyllusrnt46mid4u
   '@mui/x-data-grid': 5.17.20_vcr5dvmxb6pw4fc6n3x45xpa74
+  '@types/bcryptjs': 2.4.2
   '@types/js-cookie': 3.0.2
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
+  bcryptjs: 2.4.3
   eslint: 8.28.0
   eslint-config-next: 13.0.4_hsf322ms6xhhd4b5ne6lb74y4a
   js-cookie: 3.0.1
@@ -1456,6 +1460,10 @@ packages:
     resolution: {integrity: sha512-lB9lMjuqjtuJrx7/kOkqQBtllspPIN+96OvTCeJ2j5FEzinoAXTdAMFnDAQT1KVPRlnYfBrqxtqP66vDM40xxQ==}
     dev: false
 
+  /@types/bcryptjs/2.4.2:
+    resolution: {integrity: sha512-LiMQ6EOPob/4yUL66SZzu6Yh77cbzJFYll+ZfaPiPPFswtIlA/Fs1MzdKYA7JApHU49zQTbJGX3PDmCpIdDBRQ==}
+    dev: false
+
   /@types/js-cookie/3.0.2:
     resolution: {integrity: sha512-6+0ekgfusHftJNYpihfkMu8BWdeHs9EOJuGcSofErjstGPfPGEu9yTu4t460lTzzAMl2cM5zngQJqPMHbbnvYA==}
     dev: false
@@ -1707,6 +1715,10 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: false
+
+  /bcryptjs/2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
     dev: false
 
   /bowser/2.11.0:

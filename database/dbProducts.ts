@@ -1,8 +1,8 @@
 import { db } from "."
 import { Product } from "../models"
-import { Product as IProduct } from "../interfaces"
+import { Product as ProductType } from "../interfaces"
 
-export const getProductBySlug = async (slug: string): Promise<IProduct | null> => {
+export const getProductBySlug = async (slug: string): Promise<ProductType | null> => {
 	await db.connect()
 
 	const product = await Product.findOne({ slug }).lean()
@@ -26,7 +26,7 @@ export const getAllProductsSlugs = async (): Promise<ProductSlugs[]> => {
 	return slugs
 }
 
-export const getProductsByTerm = async (term: string): Promise<IProduct[]> => {
+export const getProductsByTerm = async (term: string): Promise<ProductType[]> => {
 	term = term.toString().toLowerCase()
 
 	await db.connect()

@@ -7,14 +7,14 @@ import { ShopLayout } from "../../components/layouts"
 import { ProductSlideshow } from "../../components/products"
 import { ItemCounter } from "../../components/ui/ItemCounter"
 import SizeSelector from "../../components/products/SizeSelector"
-import { Product as IProduct, Size } from "../../interfaces/products.interface"
+import { Product as ProductType, Size } from "../../interfaces/products.interface"
 import { dbProducts } from "../../database"
 import { CartProductType } from "../../interfaces/cart.interface"
 import { useState, useContext } from "react"
 import { CartContext } from "../../context/cart/CartContext"
 
 interface Props {
-	product: IProduct
+	product: ProductType
 }
 
 export default function ProductPage({ product }: Props) {

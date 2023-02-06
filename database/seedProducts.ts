@@ -4,7 +4,7 @@ interface SeedData {
 	products: Product[]
 }
 
-export const initialData: SeedData = {
+export const productInitialData: SeedData = {
 	products: [
 		{
 			description:
