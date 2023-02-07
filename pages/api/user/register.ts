@@ -3,6 +3,7 @@ import { db } from "../../../database"
 import { User } from "../../../models"
 import bcrypt from "bcryptjs"
 import { signToken } from "../../../utils/jwt"
+import { validations } from "../../../utils"
 
 type Data =
 	| {
@@ -41,10 +42,9 @@ const registerUser = async (req: NextApiRequest, res: NextApiResponse<Data>) => 
 		return res.status(400).json({ message: "Name must have minimum 2 characteres" })
 	}
 
-	// if (password.length < 6) {
-	//   //TODO: add more validation for email
-	//   return res.status(400).json({message: "Password must have minimum 6 characteres"})
-	// }
+	if (!validations.isValidEmail(email)) {
+		return res.status(400).json({ message: "Invalid Email" })
+	}
 
 	await db.connect()
 	const user = await User.findOne({ email })
